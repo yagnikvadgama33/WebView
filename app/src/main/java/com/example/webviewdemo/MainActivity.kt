@@ -188,7 +188,7 @@ class MainActivity : ComponentActivity() {
                         }
 
                         // Proceed with the download
-                        val request = DownloadManager.Request(Uri.parse(url.trim())).apply {
+                        val request = DownloadManager.Request(Uri.parse(url.trim().replace("blob:",""))).apply {
                             setMimeType(mimeType)
                             addRequestHeader("User-Agent", userAgent)
                             setDescription("Downloading file...")
@@ -251,7 +251,7 @@ class MainActivity : ComponentActivity() {
                 webView
             },
             update = {
-                it.loadUrl("https://smallpdf.com/jpg-to-pdf")
+                it.loadUrl("https://convertio.co/")
             }
         )
     }
